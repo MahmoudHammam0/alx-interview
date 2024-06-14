@@ -8,11 +8,11 @@ def minOperations(n):
         return 0
     else:
         i = 2
-        operations = 0
+        op = 0
         while i <= n:
             if n % i == 0:
-                operations += i
+                op += i
                 n = n / i
             else:
                 i += 1
-        return operations
+        return op
