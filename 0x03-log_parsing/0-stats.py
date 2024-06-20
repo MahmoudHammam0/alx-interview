@@ -10,7 +10,7 @@ def signal_handler(sig, frame):
     for k, v in status_codes.items():
         if v != 0:
             print("{}: {}".format(k, v))
-            v = 0
+
 
 signal.signal(signal.SIGINT, signal_handler)
 
@@ -25,13 +25,10 @@ for line in sys.stdin:
     code = line.split(' ')[-2]
     status_codes[code] += 1
     file_size += size
-    print(line)
     count += 1
     if count % 10 == 0:
         print("File size: {}".format(file_size))
         for k, v in status_codes.items():
             if v != 0:
                 print("{}: {}".format(k, v))
-                v = 0
-
-
+            status_codes[k] = 0
