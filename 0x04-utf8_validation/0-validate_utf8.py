@@ -4,12 +4,12 @@
 
 def validUTF8(data):
     """  determines if a given data set represents a valid UTF-8 encoding """
-    if (type(data) is not list or any(not isinstance(i, int) for i in data)):
+    if type(data) is not list or any(not isinstance(element, int) for element in data):
         return False
-    byte_data = [i & 0xFF for i in data]
+    data_bytes = [byte & 0xFF for byte in data]
     try:
-        byte_data = bytes(byte_data)
-        byte_data.decode('utf-8')
+        data_bytes = bytes(data_bytes)
+        data_bytes.decode('utf-8')
     except UnicodeDecodeError:
         return False
     return True
