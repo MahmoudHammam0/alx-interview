@@ -4,7 +4,7 @@
 
 def isWinner(x, nums):
     def sieve(n):
-        """ Return a list of primes up to n using the Sieve of Eratosthenes. """
+        """ Return a list of primes up to n using the Sieve of Eratosthenes"""
         is_prime = [True] * (n + 1)
         is_prime[0] = is_prime[1] = False
         for start in range(2, int(n**0.5) + 1):
